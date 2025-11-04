@@ -1,107 +1,74 @@
-# Merlin Telegram Bot - Standalone
+# Merlin Telegram Bot
 
-A standalone Telegram bot for Merlin Solana Assistant.
+🧙‍♂️ **Merlin** - Your Solana Blockchain Assistant on Telegram
 
 ## Features
 
-- ✅ Create Solana wallets
-- ✅ Import existing wallets (encrypted storage)
-- ✅ Check SOL balance
-- ✅ Send SOL
-- ✅ Beautiful button-based UI
-- ✅ Secure encryption of private keys
+- ✅ Create and manage Solana wallets
+- ✅ Send SOL to addresses, .sol domains, or @usernames
+- ✅ Check balances
+- ✅ Group chat support with @username mentions
+- ✅ AI-powered natural language processing
+- ✅ Secure encrypted wallet storage
+- ✅ Transaction history with confirmation links
 
-## Setup
+## Quick Start
 
-### 1. Install Dependencies
+### Deploy to Railway (Recommended)
+
+1. **Make Repository Private:**
+   - Go to https://github.com/freemell/merlintg
+   - Settings → General → Danger Zone → Make private
+
+2. **Deploy:**
+   - Go to [railway.app](https://railway.app)
+   - New Project → Deploy from GitHub repo
+   - Select `freemell/merlintg`
+   - Set **Root Directory** to: `telegram-bot`
+
+3. **Add Environment Variables:**
+   ```
+   TELEGRAM_BOT_TOKEN=your_bot_token
+   ENCRYPTION_SECRET=your_encryption_secret
+   DATABASE_URL=file:./dev.db
+   SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+   GROQ_API_KEY=your_groq_key
+   OPENAI_API_KEY=your_openai_key
+   USE_WEBHOOK=false
+   ```
+
+4. **Deploy!** Railway will automatically start the bot.
+
+## Database Persistence
+
+✅ **Your wallets are preserved!** The `dev.db` file is included in the repository, so Railway uses the same database with all existing wallets.
+
+## Local Development
+
 ```bash
-cd telegram-bot
 npm install
-```
-
-### 2. Database Setup
-```bash
-npx prisma migrate dev --name init
 npx prisma generate
-```
-
-### 3. Environment Variables
-Copy `.env.example` to `.env` and fill in:
-```env
-TELEGRAM_BOT_TOKEN=your_bot_token_from_botfather
-ENCRYPTION_SECRET=your-strong-random-secret-key
-DATABASE_URL="file:./bot.db"
-SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
-```
-
-### 4. Run the Bot
-
-**Development:**
-```bash
-npm run dev
-```
-
-**Production:**
-```bash
 npm start
 ```
 
-## Deployment Options
+## Usage
 
-### Option 1: Railway (Recommended)
-1. Push to GitHub
-2. Connect to [Railway](https://railway.app)
-3. Add environment variables
-4. Deploy!
-
-### Option 2: Render
-1. Create new Web Service on [Render](https://render.com)
-2. Connect GitHub repo
-3. Set start command: `npm start`
-4. Add environment variables
-5. Deploy!
-
-### Option 3: Vercel (Serverless)
-1. Create `vercel.json`:
-```json
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "index.js"
-    }
-  ]
-}
-```
-2. Deploy to Vercel
-3. Set environment variables
-4. Use webhook instead of polling
-
-### Option 4: Simple Node.js Server
-- Can run on any VPS (DigitalOcean, AWS, etc.)
-- Just run `npm start`
-- Use PM2 for process management
-
-## Webhook vs Polling
-
-**For Vercel/Railway/Render (Serverless):**
-- Use webhooks: `bot.api.setWebhook('https://your-app.com/webhook')`
-
-**For VPS/Simple Server:**
-- Use polling: `bot.start()` (already set up)
-
-## Commands
-
+### Private Chat
 - `/start` - Start the bot
-- `/help` - Show help
 - `/balance` - Check balance
-- `/wallet` - Manage wallet
+- Natural language: "send 1 SOL to address..." or "check my balance"
 
+### Group Chat
+- `@askmerlin_bot send 1 SOL to @username`
+- `@askmerlin_bot check my balance`
+- `@askmerlin_bot create wallet`
 
+## Security
+
+- 🔒 Private keys are encrypted before storage
+- 🔐 Each user's wallet is isolated by Telegram user ID
+- 🛡️ Secure username-to-userID resolution for transactions
+
+## Support
+
+See [RAILWAY_DEPLOYMENT.md](./RAILWAY_DEPLOYMENT.md) for detailed deployment instructions.
