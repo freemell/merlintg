@@ -88,9 +88,18 @@ async function handleCallbackQuery(ctx) {
         break;
 
       case 'bridge':
-        await ctx.editMessageText('🌉 Bridge functionality coming soon!', {
-          reply_markup: getMainMenu()
-        });
+    await ctx.editMessageText(
+      `🌉 *How to Bridge with Merlin*\n\n` +
+      `1. Ensure your Merlin wallet holds at least *0.1 SOL* for bridge and network fees.\n` +
+      `2. Ask Merlin in chat, for example: "bridge 0.1 SOL from solana to bsc 0xYourEVMAddress".\n` +
+      `3. Double-check the destination address—bridge transfers cannot be reversed.\n` +
+      `4. Leave a small SOL buffer so future transactions and swaps still succeed.\n\n` +
+      `⚠️ Always verify chain names and addresses before bridging to avoid losing funds.`,
+      {
+        parse_mode: 'Markdown',
+        reply_markup: getMainMenu()
+      }
+    );
         break;
 
       case 'settings':
