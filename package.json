@@ -11,13 +11,15 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^6.17.1",
+    "@mayanfinance/swap-sdk": "^11.4.0",
+    "@prisma/client": "^6.18.0",
     "@solana/spl-token": "^0.4.14",
     "@solana/web3.js": "^1.98.4",
     "dotenv": "^16.4.5",
     "grammy": "^1.24.1",
     "groq-sdk": "^0.8.0",
-    "openai": "^4.28.0"
+    "openai": "^4.28.0",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0"
