@@ -10,6 +10,8 @@ import {
   handleSendSOL,
   handleAIMessage,
   handleGroupChatMessage,
+  handleHistory,
+  handleSettings,
   getMainMenu,
   getWalletMenu,
   getBackMenu
@@ -93,15 +95,11 @@ async function handleCallbackQuery(ctx) {
         break;
 
       case 'history':
-        await ctx.editMessageText('📋 Transaction history coming soon!', {
-          reply_markup: getMainMenu()
-        });
+        await handleHistory(ctx, { edit: true });
         break;
 
       case 'settings':
-        await ctx.editMessageText('⚙️ Settings coming soon!', {
-          reply_markup: getMainMenu()
-        });
+        await handleSettings(ctx, { edit: true });
         break;
 
       case 'import_wallet':
