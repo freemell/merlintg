@@ -44,6 +44,13 @@
    - **NO API KEY REQUIRED** - The bridge uses Bungee's public endpoint which is free and keyless
    - **⚠️ WARNING**: Bungee public backend has **very limited shared RPS** (requests per second) across all users
    - **NOT SUITABLE FOR PRODUCTION** - This is a shared testing endpoint with rate limits
+   - **Note**: Bungee API uses different parameter names than legacy Socket API:
+     - `originChainId` (instead of `fromChainId`)
+     - `destinationChainId` (instead of `toChainId`)
+     - `inputToken` (instead of `fromTokenAddress`)
+     - `outputToken` (instead of `toTokenAddress`)
+     - `inputAmount` (instead of `fromAmount`)
+     - `receiverAddress` (instead of `recipient`)
    - For production use, you would need to modify the code to use Socket.tech API with an API key
    - Get Socket.tech API key at: https://docs.socket.tech/socket-api (for production use only)
 
