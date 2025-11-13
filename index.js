@@ -10,7 +10,6 @@ import {
   handleSendSOL,
   handleAIMessage,
   handleGroupChatMessage,
-  handleHistory,
   handleSettings,
   getMainMenu,
   getWalletMenu,
@@ -92,10 +91,6 @@ async function handleCallbackQuery(ctx) {
         await ctx.editMessageText('🌉 Bridge functionality coming soon!', {
           reply_markup: getMainMenu()
         });
-        break;
-
-      case 'history':
-        await handleHistory(ctx, { edit: true });
         break;
 
       case 'settings':
