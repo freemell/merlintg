@@ -35,13 +35,15 @@
    GROQ_API_KEY=your_groq_key
    OPENAI_API_KEY=your_openai_key
    SOCKET_API_KEY=your_socket_api_key
-   SOCKET_API_URL=https://api.socket.tech/v2
+   SOCKET_API_URL=https://public-backend.bungee.exchange
    USE_WEBHOOK=false
    ```
    
    **Note:** 
-   - Get your free Socket API key at https://docs.socket.tech/socket-api (required for bridge functionality)
-   - `SOCKET_API_URL` is optional (defaults to production). For devnet testing, use: `https://api-evmx-devnet.socket.tech`
+   - Bridge functionality uses Bungee Exchange public sandbox by default (free, keyless access)
+   - `SOCKET_API_URL` is optional (defaults to `https://public-backend.bungee.exchange`)
+   - The Bungee public sandbox uses endpoint: `/api/v1/bungee/quote`
+   - `SOCKET_API_KEY` is optional for the public sandbox (only needed for higher rate limits)
 
 4. **Deploy!** Railway will automatically start the bot.
 
