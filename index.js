@@ -82,9 +82,18 @@ async function handleCallbackQuery(ctx) {
         break;
 
       case 'swap':
-        await ctx.editMessageText('🔄 Swap functionality coming soon!', {
-          reply_markup: getMainMenu()
-        });
+    await ctx.editMessageText(
+      `🔄 *How to Swap with Merlin*\n\n` +
+      `1. Confirm your Merlin wallet holds enough SOL for the swap and fees.\n` +
+      `2. Ask Merlin in chat, for example: "swap 0.1 SOL to USDC" or "buy 25 bonk".\n` +
+      `3. For selling, you can say "sell 50% BONK" and Merlin calculates the amount.\n` +
+      `4. Review the token mint address to avoid scams; swaps execute immediately.\n\n` +
+      `⚠️ Always double-check token symbols or mint addresses before swapping.`,
+      {
+        parse_mode: 'Markdown',
+        reply_markup: getMainMenu()
+      }
+    );
         break;
 
       case 'bridge':
