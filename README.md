@@ -40,10 +40,11 @@
    ```
    
    **Note:** 
-   - Bridge functionality requires a Socket.tech API key (get free key at https://docs.socket.tech/socket-api)
-   - `SOCKET_API_KEY` is **required** for bridge functionality
-   - `SOCKET_API_URL` is optional (defaults to `https://api.socket.tech/v2`)
-   - Alternative: Bungee Exchange public sandbox: `https://public-backend.bungee.exchange` (uses `/api/v1/bungee/quote` endpoint)
+   - Bridge functionality uses Bungee Exchange public backend by default (free, no API key required)
+   - `SOCKET_API_URL` is optional (defaults to `https://public-backend.bungee.exchange`)
+   - **Bungee Public Backend**: Free for testing, but has very limited rate limits (shared RPS across all users, not suitable for production)
+   - For production: Use Socket.tech API with `SOCKET_API_KEY` and set `SOCKET_API_URL=https://api.socket.tech/v2`
+   - Get Socket.tech API key at: https://docs.socket.tech/socket-api
 
 4. **Deploy!** Railway will automatically start the bot.
 
